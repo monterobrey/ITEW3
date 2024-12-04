@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="user_style.css">
+</head>
+
+<body>
+    <div class="nav-container"> 
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <img style="width: 100px; cursor: pointer;" src="Images/logo png.png" class="logo">
+            <div class="container-fluid" id="userNavBar">
+                <form class="d-flex" role="search" style="margin-right: 20px;">
+                    <div class="input-group">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="searchTerm">
+                        <button class="btn btn-outline-danger" type="button" onclick="searchProducts()">
+                            <i class="fas fa-search"></i> 
+                        </button>
+                    </div>
+                </form>
+                <div class="me-3 nav-icons">
+                    <button class="btn btn-outline-danger" type="button">
+                        <i class="fas fa-shopping-cart"></i> 
+                    </button>
+                </div>
+                <div class="dropdown nav-icons">
+                    <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div> <!-- Close the container div -->
+
+    <div class="container mt-5">
+        <h2><b>SUPREME PRODUCTS</b></h2><br>
+        
+        <div class="row" id="productCatalog">
+            <!-- Product items here -->
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Sample products
+        const products = [
+            { id: 1, name: "Basketball", price: 29.99, description: "High-quality basketball.", availability: true },
+            { id: 2, name: "Running Shoes", price: 49.99, description: "Comfortable running shoes.", availability: true },
+            { id: 3, name: "Sneakers", price: 39.99, description: "Stylish sneakers for everyday wear.", availability: false },
+            { id: 4, name: "Hiking Boots", price: 89.99, description: "Durable boots for hiking.", availability: true },
+        ];
+
+        // Function to display products
+        function displayProducts(products) {
+            const productCatalog = document.getElementById("productCatalog");
+            productCatalog.innerHTML = ""; 
+
+            products.forEach(product => {
+                const productCard = `
+                    <div class="col-md-3 mb-4">
+                        <div class="card">
+                            <img src="Images/r.jpg" class="card-img-top product-thumbnail" alt="${product.name}">
+                            <div class="card-body">
+                                <h5 class="card-title">${product.name}</h5>
+                                <p class="card-text">Price: $${product.price.toFixed(2)}</p>
+                                <p class="card-text">${product.description}</p>
+                                <p class ="card-text">Available: ${product.availability ? "In stock" : "Out of stock"}</p>
+                                <button class="btn btn-danger" onclick="addToCart(${product.id})">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                productCatalog.innerHTML += productCard;
+        });
+    }
+
+    // Function to add products to cart (placeholder)
+    function addToCart(productId) {
+        alert(`Product ${productId} added to cart!`);
+    }
+
+    // Display products on page load
+    displayProducts(products);
+    </script>
+</body>
+</html>

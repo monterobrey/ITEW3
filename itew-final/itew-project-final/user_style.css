@@ -1,0 +1,50 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    min-width: 130px;
+    margin-left: 100px;
+}
+
+/* search bar */
+.form-control {
+    margin-left: 5px;
+}
+#searchTerm {
+    width: 950px;
+}
+
+/* cart and profile icons */
+.nav-icons {
+    margin-right: 100px; 
+}
+
+/* SUBTITLE */
+.container h2 {
+    color: #c82333;
+}
+
+.card {
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
